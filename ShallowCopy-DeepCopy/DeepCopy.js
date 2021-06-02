@@ -308,6 +308,7 @@ function DeepCopy4(originObj, map = new WeakMap()) {
         return originObj;
     }
 }
+/*
 
 // 是否为引用类型
 function isObject_v2(obj) {
@@ -317,6 +318,7 @@ function isObject_v2(obj) {
 let cloneObj = DeepCopy4(obj1);
 console.log(obj1);
 console.log(cloneObj);
+*/
 
 
 
@@ -325,14 +327,15 @@ console.log(cloneObj);
 const obj2=DeepCopy2(obj1);
 const obj2=DeepCopyJSON(obj1)
 const obj2=DeepCopyLoop(obj1);*/
+const obj2 = _.cloneDeep(obj1);
 
 
-/*const obj2=DeepCopyForce(obj1);
+/*const obj2=DeepCopyForce(obj1);*/
 obj2.name = "jenny";//修改后，obj1的此属性值不变
 obj2.arraylist[2]=[8,9,10];//修改后，obj1的此属性值不变
 obj2.objectlist.address="tianjin";//修改后，obj1的此属性值不变
 console.log(obj1);
-console.log(obj2);*/
+console.log(obj2);
 
 
 
