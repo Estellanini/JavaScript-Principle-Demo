@@ -19,9 +19,16 @@ getNumber()
         function(data){
             console.log('resolved');
             console.log(data);
+            console.log(somedata); //此处的somedata未定义
         },
         function(reason){
             console.log('rejected');
             console.log(reason)
         }
-    );
+    )
+    .catch(function(reason){//效果和写在then的第二个参数里面一样
+        //不过它还有另外一个作用：在执行resolve的回调（也就是上面then中的第一个参数）时，
+        // 如果抛出异常了（代码出错了），那么并不会报错卡死js，而是会进到这个catch方法中。
+        console.log('rejected');
+        console.log(reason);
+    });
