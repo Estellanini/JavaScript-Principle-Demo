@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>data hijack</title>
+</head>
+<body>
+<div id="app">
+    <h3>姓名是：{{name}}</h3>
+    <h3>年龄是：{{age}}</h3>
+</div>
+<script src="./data-hijack.js"></script>
+<script>
+    const vm=new Vue({
+        el:'#app',
+        data:{
+            name:'nini',
+            age:23,
+            info:{
+                a:'a1',
+                c:'c1'
+            }
+        }
+    })
+    console.log(vm)
+</script>
+</body>
+</html>
