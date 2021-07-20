@@ -12,6 +12,34 @@ class Vue{
         //调用数据劫持的方法Observe,把你要劫持的数据传进去，传this.$data和options.data是一样的
         Observe(this.$data);
 
+
+
+        //属性代理
+        // Object.keys(this.$data)//["name", "age", "info"]
+        Object.keys(this.$data).forEach(key=>{
+            //这次我们拿到key之后，不再交给this.$data了，因为那上面已经有get  set了
+            //而vm身上没有get set
+            //在构造函数里，vm就是this
+            //所以我们为this(也就是vm)，循环定义了name、age、info属性，同时定义了getter、setter
+            //为this加一个自定义属性key,只要有人访问key的时候，那么在key上就有getter setter
+            //这里的key，就循环代表name、age、info
+            Object.defineProperty(this,key,{
+                enumerable:true,
+                configurable:true,
+                //有人找我要值，就转身找$data要
+                get() {
+                    return this.$data[key];
+                },
+                //有人给我赋值，就转身把值赋给$data
+                set(newValue){
+                    this.$data[key]=newValue;
+                }
+            })
+        })
+
+
+
+
     }
 }
 
