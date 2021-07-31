@@ -1,3 +1,4 @@
+/*
 function getNumber(){
     var p = new Promise(function(resolve, reject){
         //做一些异步操作
@@ -32,3 +33,25 @@ getNumber()
         console.log('rejected');
         console.log(reason);
     });
+*/
+
+
+let p1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('成功了')
+    }, 2000);
+})
+
+let p2 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        reject('失败了')
+    }, 1000);
+})
+
+
+Promise.race([p1, p2]).then((result) => {
+    console.log(result)
+}).catch((error) => {
+    console.log(error)
+})
+//输出：失败了
