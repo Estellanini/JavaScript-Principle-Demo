@@ -35,10 +35,15 @@
 }*/
 
 //方法五：扩展运算符
-function flatten(arr) {
+/*function flatten(arr) {
     while(arr.some(item=>Array.isArray(item))) {
         arr = [].concat(...arr);
     }
     return arr;
-}
-console.log(flatten([1, [2, 3, [4, 5]]]));//[1,2,3,4,5]
+}*/
+
+
+//console.log(flatten([1, [2, 3, [4, 5]]]));//[1,2,3,4,5]
+
+let arr=[1, [2, 3, [4, 5]]];
+console.log(arr.flat(Infinity));
