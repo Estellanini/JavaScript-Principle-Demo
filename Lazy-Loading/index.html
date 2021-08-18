@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lazyloading</title>
+</head>
+<body>
+    <p>hjhkhjkhjhkjhkjhhjhkjhdushiushsiuhaishaoshakjhdjshskjdadhasidhasiudhasiud</p>
+    <p>hjhkhjkhjhkjhkjhhjhkjhdushiushsiuhaishaoshakjhdjshskjdadhasidhasiudhasiud</p>
+    <img data-src="1.jpg">
+//注意：浏览器碰到data-这个属性的时候是不会像默认属性那样进行属性处理的，所以我们可以把src属性改为data-src，这样就相当于不知道在哪里下载这些图片了
+    <img data-src="2.jpg">
+    <img data-src="3.jpg">
+
+    <p>hjhkhjkhjhkjhkjhhjhkjhdushiushsiuhaishaoshakjhdjshskjdadhasidhasiudhasiud</p>
+    <p>hjhkhjkhjhkjhkjhhjhkjhdushiushsiuhaishaoshakjhdjshskjdadhasidhasiudhasiud</p>
+</body>
+<script src="lazy-loading.js"></script>
+</html>
